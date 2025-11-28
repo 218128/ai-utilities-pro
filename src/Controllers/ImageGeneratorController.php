@@ -36,7 +36,11 @@ class ImageGeneratorController {
                     $imageUrl = $this->callDallE($prompt);
                 }
 
-                if (!$imageUrl) {
+                // Check if the result is an error message
+                if ($imageUrl && strpos($imageUrl, 'Error:') === 0) {
+                    $error = $imageUrl;
+                    $imageUrl = '';
+                } elseif (!$imageUrl) {
                     $error = "Failed to generate image. Please check your API key or try again later.";
                 }
             }

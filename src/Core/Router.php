@@ -5,6 +5,8 @@ namespace App\Core;
 class Router {
     protected $routes = [];
 
+
+
     public function get(string $path, $callback): void {
         $this->routes['GET'][$path] = $callback;
     }

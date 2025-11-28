@@ -68,6 +68,7 @@
                     <li><a href="/tools/privacy-policy-generator">⚖️ Privacy Policy Generator</a></li>
                     <li><a href="/tools/json-formatter">🔧 JSON Formatter</a></li>
                     <li><a href="/tools/lorem-ipsum-generator">📝 Lorem Ipsum Generator</a></li>
+                    <li><a href="/privacy-policy">🔒 Privacy Policy</a></li>
                 </ul>
             </div>
         </aside>
