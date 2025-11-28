@@ -14,9 +14,10 @@ class SummarizerController {
             if (empty($inputText)) {
                 $error = "Please enter some text to summarize.";
             } else {
-                // TODO: Replace with real API call (e.g., OpenAI or Gemini)
-                // For now, we simulate a summary for demonstration.
-                $summary = $this->mockSummarize($inputText);
+                $summary = $this->callOpenAI($inputText);
+                if (!$summary) {
+                    $error = "Failed to generate summary. Please check your API key or try again later.";
+                }
             }
         }
 
@@ -30,11 +31,41 @@ class SummarizerController {
         require __DIR__ . '/../../templates/layout.php';
     }
 
-    private function mockSummarize($text) {
-        // Simple mock logic: take the first few sentences or generate a placeholder
-        $sentences = explode('.', $text);
-        $preview = implode('.', array_slice($sentences, 0, 2)) . '.';
-        
-        return "<strong>[AI Mock Summary]</strong>: This is a simulated summary of your text. In a production environment, this would call an LLM API. <br><br> Key points extracted from your text:<br>• " . $preview;
+    private function callOpenAI($text) {
+        $apiKey = getenv('OPENAI_API_KEY');
+        if (!$apiKey) {
+            return "Error: OPENAI_API_KEY not set.";
+        }
+
+        $url = 'https://api.openai.com/v1/chat/completions';
+        $data = [
+            'model' => 'gpt-3.5-turbo',
+            'messages' => [
+                ['role' => 'system', 'content' => 'You are a helpful assistant that summarizes text concisely.'],
+                ['role' => 'user', 'content' => "Summarize the following text:\n\n" . $text]
+            ],
+            'max_tokens' => 150
+        ];
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $apiKey
+        ]);
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode === 200) {
+            $result = json_decode($response, true);
+            return $result['choices'][0]['message']['content'] ?? null;
+        }
+
+        return null;
     }
 }
+?>
