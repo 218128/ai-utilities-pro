@@ -122,6 +122,12 @@ class ImageGeneratorController {
         } else {
             // Log the error for debugging
             error_log("DALL-E API Error: HTTP $httpCode - Response: $response - Curl Error: $curlError");
+            
+            $errorData = json_decode($response, true);
+            if (isset($errorData['error']['code']) && $errorData['error']['code'] === 'billing_hard_limit_reached') {
+                return "Error: OpenAI Billing Limit Reached. Please use the Free Pollinations AI tool instead.";
+            }
+            
             return null;
         }
         return null;
