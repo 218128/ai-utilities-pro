@@ -30,6 +30,8 @@
             <a href="/tools/qr-code-generator">QR Gen</a>
             <a href="/tools/youtube-thumbnail">YT Thumb</a>
             <a href="/tools/privacy-policy-generator">Privacy Gen</a>
+            <a href="/tools/json-formatter">JSON Fmt</a>
+            <a href="/tools/lorem-ipsum-generator">Lorem Ipsum</a>
         </div>
     </nav>
 
@@ -62,6 +64,8 @@
                     <li><a href="/tools/qr-code-generator">📱 QR Code Generator</a></li>
                     <li><a href="/tools/youtube-thumbnail">📺 YT Thumbnail Downloader</a></li>
                     <li><a href="/tools/privacy-policy-generator">⚖️ Privacy Policy Generator</a></li>
+                    <li><a href="/tools/json-formatter">🔧 JSON Formatter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator">📝 Lorem Ipsum Generator</a></li>
                 </ul>
             </div>
         </aside>

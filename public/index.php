@@ -66,4 +66,10 @@ $router->post('/tools/youtube-thumbnail', 'YoutubeThumbnailController@index');
 $router->get('/tools/privacy-policy-generator', 'PrivacyPolicyController@index');
 $router->post('/tools/privacy-policy-generator', 'PrivacyPolicyController@index');
 
+$router->get('/tools/json-formatter', 'JsonFormatterController@index');
+$router->post('/tools/json-formatter', 'JsonFormatterController@index');
+
+$router->get('/tools/lorem-ipsum-generator', 'LoremIpsumController@index');
+$router->post('/tools/lorem-ipsum-generator', 'LoremIpsumController@index');
+
 $router->resolve();
