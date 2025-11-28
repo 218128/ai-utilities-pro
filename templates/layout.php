@@ -21,17 +21,17 @@
         <a href="/" class="logo">AI Utilities Pro</a>
         <div class="nav-links">
             <a href="/">Home</a>
-            <a href="/tools/password-generator">Password Gen</a>
-            <a href="/tools/summarizer">AI Summarizer</a>
-            <a href="/tools/seo-tags">SEO Tags</a>
-            <a href="/tools/image-generator">Image Generator</a>
-            <a href="/tools/mortgage-calculator">Mortgage Calc</a>
-            <a href="/tools/bmi-calculator">BMI Calc</a>
-            <a href="/tools/qr-code-generator">QR Gen</a>
-            <a href="/tools/youtube-thumbnail">YT Thumb</a>
-            <a href="/tools/privacy-policy-generator">Privacy Gen</a>
-            <a href="/tools/json-formatter">JSON Fmt</a>
-            <a href="/tools/lorem-ipsum-generator">Lorem Ipsum</a>
+            <a href="/tools/chatgpt-summarizer">ChatGPT</a>
+            <a href="/tools/google-gemini-summarizer">Gemini</a>
+            <a href="/tools/dalle-3-image-generator">DALL-E 3</a>
+            <a href="/tools/pollinations-ai-image-generator">Pollinations</a>
+            <a href="/tools/password-generator">Pass Gen</a>
+            <a href="/tools/seo-tags">SEO</a>
+            <a href="/tools/mortgage-calculator">Mortgage</a>
+            <a href="/tools/bmi-calculator">BMI</a>
+            <a href="/tools/qr-code-generator">QR</a>
+            <a href="/tools/youtube-thumbnail">YT</a>
+            <a href="/tools/json-formatter">JSON</a>
         </div>
     </nav>
 
@@ -55,7 +55,6 @@
             <div class="card">
                 <h3>Popular Tools</h3>
                 <ul style="list-style: none; margin-top: 1rem;">
-                    <li style="margin-bottom: 0.5rem;"><a href="/tools/password-generator">🔐 Password Generator</a></li>
                     <li style="margin-bottom: 0.5rem;"><a href="/tools/password-generator">🔐 Password Generator</a></li>
                     <li style="margin-bottom: 0.5rem;"><a href="/tools/chatgpt-summarizer">✨ ChatGPT Summarizer</a></li>
                     <li style="margin-bottom: 0.5rem;"><a href="/tools/google-gemini-summarizer">⚡ Gemini Summarizer (Free)</a></li>
