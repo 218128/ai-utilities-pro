@@ -113,11 +113,16 @@ class ImageGeneratorController {
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
         curl_close($ch);
 
         if ($httpCode === 200) {
             $result = json_decode($response, true);
             return $result['data'][0]['url'] ?? null;
+        } else {
+            // Log the error for debugging
+            error_log("DALL-E API Error: HTTP $httpCode - Response: $response - Curl Error: $curlError");
+            return null;
         }
         return null;
     }
