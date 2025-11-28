@@ -51,6 +51,9 @@ $router->post('/tools/summarizer', 'SummarizerController@index');
 $router->get('/tools/seo-tags', 'SeoController@index');
 $router->post('/tools/seo-tags', 'SeoController@index');
 
+$router->get('/tools/image-generator', 'ImageGeneratorController@index');
+$router->post('/tools/image-generator', 'ImageGeneratorController@index');
+
 $router->get('/tools/mortgage-calculator', 'MortgageController@index');
 $router->post('/tools/mortgage-calculator', 'MortgageController@index');
 

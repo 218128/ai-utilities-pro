@@ -58,11 +58,16 @@ class SummarizerController {
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
         curl_close($ch);
 
         if ($httpCode === 200) {
             $result = json_decode($response, true);
             return $result['choices'][0]['message']['content'] ?? null;
+        } else {
+            // Log the error for debugging
+            error_log("OpenAI API Error: HTTP $httpCode - Response: $response - Curl Error: $curlError");
+            return "Error: HTTP $httpCode. " . ($curlError ? "Curl: $curlError" : "Check logs.");
         }
 
         return null;
