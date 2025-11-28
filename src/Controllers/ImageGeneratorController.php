@@ -3,7 +3,23 @@
 namespace App\Controllers;
 
 class ImageGeneratorController {
+    
+    // Route: /tools/dalle-3-image-generator
+    public function dalle() {
+        $this->renderPage('DALL-E 3', 'dall-e-3');
+    }
+
+    // Route: /tools/pollinations-ai-image-generator
+    public function pollinations() {
+        $this->renderPage('Pollinations AI', 'pollinations');
+    }
+
+    // Legacy Route: /tools/image-generator (Defaults to DALL-E)
     public function index() {
+        $this->renderPage('AI', 'dall-e-3');
+    }
+
+    private function renderPage($providerName, $model) {
         $imageUrl = '';
         $prompt = '';
         $error = '';
@@ -14,28 +30,38 @@ class ImageGeneratorController {
             if (empty($prompt)) {
                 $error = "Please enter a prompt to generate an image.";
             } else {
-                $imageUrl = $this->callDallE($prompt);
+                if ($model === 'pollinations') {
+                    $imageUrl = $this->callPollinations($prompt);
+                } else {
+                    $imageUrl = $this->callDallE($prompt);
+                }
+
                 if (!$imageUrl) {
                     $error = "Failed to generate image. Please check your API key or try again later.";
                 }
             }
         }
 
+        // Dynamic View Data
+        $pageTitle = "$providerName Image Generator - Free Online Tool";
+        $pageDescription = "Generate stunning images instantly using $providerName. Free and fast AI image generation.";
+        $formAction = $_SERVER['REQUEST_URI'];
+
         ob_start();
         ?>
         <div class="tool-container">
             <div class="hero" style="padding: 2rem 0;">
-                <h1><span class="gradient-text">AI Image Generator</span></h1>
-                <p>Turn text into stunning images using DALL-E 3.</p>
+                <h1><span class="gradient-text"><?= htmlspecialchars($providerName) ?> Generator</span></h1>
+                <p>Turn text into stunning images using <strong><?= htmlspecialchars($providerName) ?></strong>.</p>
             </div>
 
             <div class="card" style="max-width: 800px; margin: 0 auto;">
-                <form method="post" action="/tools/image-generator">
+                <form method="post" action="<?= htmlspecialchars($formAction) ?>">
                     <div class="form-group">
                         <label for="prompt">Image Prompt</label>
                         <input type="text" id="prompt" name="prompt" value="<?= htmlspecialchars($prompt) ?>" placeholder="A futuristic city with flying cars at sunset..." required>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Generate Image</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Generate with <?= htmlspecialchars($providerName) ?></button>
                 </form>
 
                 <?php if ($error): ?>
@@ -57,16 +83,16 @@ class ImageGeneratorController {
         </div>
         <?php
         $content = ob_get_clean();
-        $title = "AI Image Generator - AI Utilities Pro";
-        $description = "Generate unique images from text prompts using AI.";
+        
+        $title = $pageTitle;
+        $description = $pageDescription;
+        
         require __DIR__ . '/../../templates/layout.php';
     }
 
     private function callDallE($prompt) {
         $apiKey = getenv('OPENAI_API_KEY');
-        if (!$apiKey) {
-            return null;
-        }
+        if (!$apiKey) return null;
 
         $url = 'https://api.openai.com/v1/images/generations';
         $data = [
@@ -93,8 +119,13 @@ class ImageGeneratorController {
             $result = json_decode($response, true);
             return $result['data'][0]['url'] ?? null;
         }
-
         return null;
+    }
+
+    private function callPollinations($prompt) {
+        // Pollinations.ai is a free GET API
+        $encodedPrompt = urlencode($prompt);
+        return "https://image.pollinations.ai/prompt/" . $encodedPrompt;
     }
 }
 ?>

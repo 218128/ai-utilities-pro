@@ -56,9 +56,12 @@
                 <h3>Popular Tools</h3>
                 <ul style="list-style: none; margin-top: 1rem;">
                     <li style="margin-bottom: 0.5rem;"><a href="/tools/password-generator">🔐 Password Generator</a></li>
-                    <li style="margin-bottom: 0.5rem;"><a href="/tools/summarizer">✨ AI Summarizer</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="/tools/password-generator">🔐 Password Generator</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="/tools/chatgpt-summarizer">✨ ChatGPT Summarizer</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="/tools/google-gemini-summarizer">⚡ Gemini Summarizer (Free)</a></li>
                     <li><a href="/tools/seo-tags">🏷️ SEO Tag Generator</a></li>
-                    <li><a href="/tools/image-generator">🖼️ Image Generator</a></li>
+                    <li><a href="/tools/dalle-3-image-generator">🖼️ DALL-E 3 Generator</a></li>
+                    <li><a href="/tools/pollinations-ai-image-generator">🎨 Pollinations AI (Free)</a></li>
                     <li><a href="/tools/mortgage-calculator">🏠 Mortgage Calculator</a></li>
                     <li><a href="/tools/bmi-calculator">⚖️ BMI Calculator</a></li>
                     <li><a href="/tools/qr-code-generator">📱 QR Code Generator</a></li>

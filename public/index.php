@@ -47,12 +47,20 @@ $router->post('/tools/password-generator', 'PasswordController@index');
 
 $router->get('/tools/summarizer', 'SummarizerController@index');
 $router->post('/tools/summarizer', 'SummarizerController@index');
+$router->get('/tools/chatgpt-summarizer', 'SummarizerController@chatgpt');
+$router->post('/tools/chatgpt-summarizer', 'SummarizerController@chatgpt');
+$router->get('/tools/google-gemini-summarizer', 'SummarizerController@gemini');
+$router->post('/tools/google-gemini-summarizer', 'SummarizerController@gemini');
 
 $router->get('/tools/seo-tags', 'SeoController@index');
 $router->post('/tools/seo-tags', 'SeoController@index');
 
 $router->get('/tools/image-generator', 'ImageGeneratorController@index');
 $router->post('/tools/image-generator', 'ImageGeneratorController@index');
+$router->get('/tools/dalle-3-image-generator', 'ImageGeneratorController@dalle');
+$router->post('/tools/dalle-3-image-generator', 'ImageGeneratorController@dalle');
+$router->get('/tools/pollinations-ai-image-generator', 'ImageGeneratorController@pollinations');
+$router->post('/tools/pollinations-ai-image-generator', 'ImageGeneratorController@pollinations');
 
 $router->get('/tools/mortgage-calculator', 'MortgageController@index');
 $router->post('/tools/mortgage-calculator', 'MortgageController@index');
