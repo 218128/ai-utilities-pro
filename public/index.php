@@ -51,4 +51,13 @@ $router->post('/tools/summarizer', 'SummarizerController@index');
 $router->get('/tools/seo-tags', 'SeoController@index');
 $router->post('/tools/seo-tags', 'SeoController@index');
 
+$router->get('/tools/mortgage-calculator', 'MortgageController@index');
+$router->post('/tools/mortgage-calculator', 'MortgageController@index');
+
+$router->get('/tools/bmi-calculator', 'BmiController@index');
+$router->post('/tools/bmi-calculator', 'BmiController@index');
+
+$router->get('/tools/qr-code-generator', 'QrCodeController@index');
+$router->post('/tools/qr-code-generator', 'QrCodeController@index');
+
 $router->resolve();

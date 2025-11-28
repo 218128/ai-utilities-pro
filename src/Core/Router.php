@@ -5,25 +5,24 @@ namespace App\Core;
 class Router {
     protected $routes = [];
 
-    public function get($path, $callback) {
+    public function get(string $path, string $callback): void {
         $this->routes['GET'][$path] = $callback;
     }
 
-    public function post($path, $callback) {
+    public function post(string $path, string $callback): void {
         $this->routes['POST'][$path] = $callback;
     }
 
-    public function resolve() {
+    public function resolve(): void {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
-        
-        // Simple normalization to remove trailing slash if not root
+
+        // Normalize trailing slash
         if ($path !== '/' && substr($path, -1) === '/') {
             $path = rtrim($path, '/');
         }
 
         $callback = $this->routes[$method][$path] ?? false;
-
         if ($callback === false) {
             http_response_code(404);
             echo "404 - Not Found";
@@ -31,18 +30,15 @@ class Router {
         }
 
         if (is_string($callback)) {
-            // Handle 'Controller@method' format
-            $parts = explode('@', $callback);
-            $controllerName = "App\\Controllers\\" . $parts[0];
-            $method = $parts[1];
-            
-            // Simple autoloading simulation for this structure
-            require_once __DIR__ . "/../Controllers/" . $parts[0] . ".php";
-            
-            $controller = new $controllerName();
+            // Controller@method format
+            [$controllerClass, $method] = explode('@', $callback);
+            $controllerFQN = "App\\Controllers\\" . $controllerClass;
+            require_once __DIR__ . "/../Controllers/" . $controllerClass . ".php";
+            $controller = new $controllerFQN();
             echo $controller->$method();
         } else {
             echo call_user_func($callback);
         }
     }
 }
+?>
