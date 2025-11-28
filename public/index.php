@@ -60,4 +60,10 @@ $router->post('/tools/bmi-calculator', 'BmiController@index');
 $router->get('/tools/qr-code-generator', 'QrCodeController@index');
 $router->post('/tools/qr-code-generator', 'QrCodeController@index');
 
+$router->get('/tools/youtube-thumbnail', 'YoutubeThumbnailController@index');
+$router->post('/tools/youtube-thumbnail', 'YoutubeThumbnailController@index');
+
+$router->get('/tools/privacy-policy-generator', 'PrivacyPolicyController@index');
+$router->post('/tools/privacy-policy-generator', 'PrivacyPolicyController@index');
+
 $router->resolve();

@@ -25,6 +25,8 @@
             <a href="/tools/mortgage-calculator">Mortgage Calc</a>
             <a href="/tools/bmi-calculator">BMI Calc</a>
             <a href="/tools/qr-code-generator">QR Gen</a>
+            <a href="/tools/youtube-thumbnail">YT Thumb</a>
+            <a href="/tools/privacy-policy-generator">Privacy Gen</a>
         </div>
     </nav>
 
@@ -55,6 +57,8 @@
                     <li><a href="/tools/mortgage-calculator">🏠 Mortgage Calculator</a></li>
                     <li><a href="/tools/bmi-calculator">⚖️ BMI Calculator</a></li>
                     <li><a href="/tools/qr-code-generator">📱 QR Code Generator</a></li>
+                    <li><a href="/tools/youtube-thumbnail">📺 YT Thumbnail Downloader</a></li>
+                    <li><a href="/tools/privacy-policy-generator">⚖️ Privacy Policy Generator</a></li>
                 </ul>
             </div>
         </aside>
