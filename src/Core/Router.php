@@ -5,11 +5,11 @@ namespace App\Core;
 class Router {
     protected $routes = [];
 
-    public function get(string $path, string $callback): void {
+    public function get(string $path, $callback): void {
         $this->routes['GET'][$path] = $callback;
     }
 
-    public function post(string $path, string $callback): void {
+    public function post(string $path, $callback): void {
         $this->routes['POST'][$path] = $callback;
     }
 
