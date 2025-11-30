@@ -65,13 +65,7 @@
         </div>
     </nav>
 
-    <!-- Floating Share Sidebar (Desktop) -->
-    <div class="floating-share">
-        <a href="https://twitter.com/intent/tweet?url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>&text=<?= urlencode($title ?? 'Check out this AI tool!') ?>" target="_blank" class="share-icon twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="share-icon facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="share-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://api.whatsapp.com/send?text=<?= urlencode(($title ?? 'Check out this AI tool!') . " https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="share-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
-    </div>
+
 
     <!-- Top Ad Banner -->
     <div class="container" style="max-width: 1200px; margin: 2rem auto 0; padding: 0 2rem;">
@@ -82,45 +76,72 @@
 
     <div class="main-container">
         
-        <!-- Inline Share Buttons (Mobile Only) -->
-        <div class="inline-share-mobile">
-            <p style="margin-bottom: 0.5rem; font-weight: bold; font-size: 0.9rem;">Share this tool:</p>
-            <div style="display: flex; gap: 0.5rem;">
-                <a href="https://twitter.com/intent/tweet?url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>&text=<?= urlencode($title ?? 'Check out this AI tool!') ?>" target="_blank" class="btn btn-sm" style="background: #1DA1F2; color: white; flex: 1; text-align: center;"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #4267B2; color: white; flex: 1; text-align: center;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://api.whatsapp.com/send?text=<?= urlencode(($title ?? 'Check out this AI tool!') . " https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #25D366; color: white; flex: 1; text-align: center;"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
+
 
         <main class="content-area">
             <?= $content ?? '' ?>
 
-            <!-- Related Tools Section -->
-            <div class="related-tools" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <!-- 2. Share Card -->
+            <div class="card card-flow">
+                <h3><i class="fas fa-share-alt" style="color: var(--primary);"></i> Share this Tool</h3>
+                <p class="text-muted" style="margin-bottom: 1rem;">Help others discover this tool by sharing it with your network.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://twitter.com/intent/tweet?url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>&text=<?= urlencode($title ?? 'Check out this AI tool!') ?>" target="_blank" class="btn btn-sm" style="background: #1DA1F2; color: white; flex: 1; text-align: center; min-width: 120px;"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #4267B2; color: white; flex: 1; text-align: center; min-width: 120px;"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://api.whatsapp.com/send?text=<?= urlencode(($title ?? 'Check out this AI tool!') . " https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #25D366; color: white; flex: 1; text-align: center; min-width: 120px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #0077b5; color: white; flex: 1; text-align: center; min-width: 120px;"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- 3. Ad Card (In-Feed) -->
+            <div class="card card-flow" style="display: flex; justify-content: center; align-items: center; min-height: 100px; background: var(--bg-dark); border: 1px dashed var(--border-color);">
+                <span class="text-muted">Ad Space (In-Feed)</span>
+            </div>
+
+            <!-- 4. Related Tools Card -->
+            <div class="card card-flow">
                 <h3 style="margin-bottom: 1.5rem;">🔥 You Might Also Like</h3>
                 <div class="tools-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
-                    
-                    <a href="/tools/chatgpt-summarizer" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                    <a href="/tools/chatgpt-summarizer" class="tool-card-mini" style="background: var(--bg-input); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✨</div>
                         <div style="font-weight: bold; font-size: 0.9rem;">ChatGPT Summarizer</div>
                     </a>
-
-                    <a href="/tools/dalle-3-image-generator" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                    <a href="/tools/dalle-3-image-generator" class="tool-card-mini" style="background: var(--bg-input); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🖼️</div>
                         <div style="font-weight: bold; font-size: 0.9rem;">DALL-E 3 Generator</div>
                     </a>
-
-                    <a href="/tools/password-generator" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                    <a href="/tools/password-generator" class="tool-card-mini" style="background: var(--bg-input); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔐</div>
                         <div style="font-weight: bold; font-size: 0.9rem;">Password Generator</div>
                     </a>
-
-                    <a href="/tools/json-formatter" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                    <a href="/tools/json-formatter" class="tool-card-mini" style="background: var(--bg-input); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔧</div>
                         <div style="font-weight: bold; font-size: 0.9rem;">JSON Formatter</div>
                     </a>
-
                 </div>
+            </div>
+
+            <!-- 5. Popular Tools Card -->
+            <div class="card card-flow">
+                <h3>🚀 Popular Tools</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <a href="/tools/google-gemini-summarizer" class="btn btn-secondary" style="text-align: left;">⚡ Gemini Summarizer</a>
+                    <a href="/tools/seo-tags" class="btn btn-secondary" style="text-align: left;">🏷️ SEO Tag Generator</a>
+                    <a href="/tools/pollinations-ai-image-generator" class="btn btn-secondary" style="text-align: left;">🎨 Pollinations AI</a>
+                    <a href="/tools/mortgage-calculator" class="btn btn-secondary" style="text-align: left;">🏠 Mortgage Calculator</a>
+                    <a href="/tools/qr-code-generator" class="btn btn-secondary" style="text-align: left;">📱 QR Code Generator</a>
+                    <a href="/tools/youtube-thumbnail" class="btn btn-secondary" style="text-align: left;">📺 YT Thumbnail</a>
+                </div>
+            </div>
+
+            <!-- 6. Pro Tips Card -->
+            <div class="card card-flow">
+                <h3>💡 Pro Tips</h3>
+                <ul style="margin-top: 1rem; padding-left: 1.5rem; color: var(--text-muted);">
+                    <li style="margin-bottom: 0.5rem;">Bookmark this page (Ctrl+D) to access these tools instantly.</li>
+                    <li style="margin-bottom: 0.5rem;">All our AI tools are free to use with no daily limits.</li>
+                    <li style="margin-bottom: 0.5rem;">We respect your privacy: data is processed securely and never stored.</li>
+                </ul>
             </div>
         </main>
 
@@ -129,27 +150,7 @@
                 <span>Ad Space (Sidebar 300x600)</span>
             </div>
 
-            <div class="card">
-                <h3>Popular Tools</h3>
-                <ul style="list-style: none; margin-top: 1rem;">
-                    <li style="margin-bottom: 0.5rem;"><a href="/tools/password-generator">🔐 Password Generator</a></li>
-                    <li style="margin-bottom: 0.5rem;"><a href="/tools/chatgpt-summarizer">✨ ChatGPT Summarizer</a></li>
-                    <li style="margin-bottom: 0.5rem;"><a href="/tools/google-gemini-summarizer">⚡ Gemini Summarizer (Free)</a></li>
-                    <li><a href="/tools/seo-tags">🏷️ SEO Tag Generator</a></li>
-                    <li><a href="/tools/dalle-3-image-generator">🖼️ DALL-E 3 Generator</a></li>
-                    <li><a href="/tools/pollinations-ai-image-generator">🎨 Pollinations AI (Free)</a></li>
-                    <li><a href="/tools/mortgage-calculator">🏠 Mortgage Calculator</a></li>
-                    <li><a href="/tools/bmi-calculator">⚖️ BMI Calculator</a></li>
-                    <li><a href="/tools/qr-code-generator">📱 QR Code Generator</a></li>
-                    <li><a href="/tools/youtube-thumbnail">📺 YT Thumbnail Downloader</a></li>
-                    <li><a href="/tools/privacy-policy-generator">⚖️ Privacy Policy Generator</a></li>
-                    <li><a href="/tools/json-formatter">🔧 JSON Formatter</a></li>
-                    <li><a href="/tools/markdown-editor">📝 Markdown Editor</a></li>
-                    <li><a href="/tools/unit-converter">⚖️ Unit Converter</a></li>
-                    <li><a href="/tools/lorem-ipsum-generator">📝 Lorem Ipsum Generator</a></li>
-                    <li><a href="/privacy-policy">🔒 Privacy Policy</a></li>
-                </ul>
-            </div>
+
         </aside>
     </div>
 
