@@ -21,17 +21,39 @@
         <a href="/" class="logo">AI Utilities Pro</a>
         <div class="nav-links">
             <a href="/">Home</a>
-            <a href="/tools/chatgpt-summarizer">ChatGPT</a>
-            <a href="/tools/google-gemini-summarizer">Gemini</a>
-            <a href="/tools/dalle-3-image-generator">DALL-E 3</a>
-            <a href="/tools/pollinations-ai-image-generator">Pollinations</a>
-            <a href="/tools/password-generator">Pass Gen</a>
-            <a href="/tools/seo-tags">SEO</a>
-            <a href="/tools/mortgage-calculator">Mortgage</a>
-            <a href="/tools/bmi-calculator">BMI</a>
-            <a href="/tools/qr-code-generator">QR</a>
-            <a href="/tools/youtube-thumbnail">YT</a>
-            <a href="/tools/json-formatter">JSON</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">AI Tools <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="/tools/chatgpt-summarizer">✨ ChatGPT Summarizer</a>
+                    <a href="/tools/google-gemini-summarizer">⚡ Gemini Summarizer</a>
+                    <a href="/tools/dalle-3-image-generator">🖼️ DALL-E 3 Generator</a>
+                    <a href="/tools/pollinations-ai-image-generator">🎨 Pollinations AI</a>
+                    <a href="/tools/seo-tags">🏷️ SEO Tags</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Dev Tools <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="/tools/json-formatter">🔧 JSON Formatter</a>
+                    <a href="/tools/markdown-editor">📝 Markdown Editor</a>
+                    <a href="/tools/password-generator">🔐 Password Generator</a>
+                    <a href="/tools/qr-code-generator">📱 QR Code</a>
+                    <a href="/tools/lorem-ipsum-generator">📝 Lorem Ipsum</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Calculators <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="/tools/mortgage-calculator">🏠 Mortgage Calc</a>
+                    <a href="/tools/bmi-calculator">⚖️ BMI Calc</a>
+                    <a href="/tools/unit-converter">📏 Unit Converter</a>
+                </div>
+            </div>
+
+            <a href="/tools/youtube-thumbnail">YT Thumb</a>
         </div>
     </nav>
 
