@@ -83,6 +83,12 @@ $router->post('/tools/json-formatter', 'JsonFormatterController@index');
 $router->get('/tools/lorem-ipsum-generator', 'LoremIpsumController@index');
 $router->post('/tools/lorem-ipsum-generator', 'LoremIpsumController@index');
 
+$router->get('/tools/markdown-editor', 'MarkdownEditorController@index');
+$router->post('/tools/markdown-editor', 'MarkdownEditorController@index');
+
+$router->get('/tools/unit-converter', 'UnitConverterController@index');
+$router->post('/tools/unit-converter', 'UnitConverterController@index');
+
 $router->get('/privacy-policy', 'SitePrivacyPolicyController@index');
 
 $router->resolve();

@@ -52,6 +52,15 @@
                 <span>Ad Space (Sidebar 300x600)</span>
             </div>
 
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Share this Tool</h3>
+                <div class="share-buttons" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <a href="https://twitter.com/intent/tweet?url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>&text=<?= urlencode($title ?? 'Check out this AI tool!') ?>" target="_blank" class="btn btn-sm" style="background: #1DA1F2; color: white; flex: 1; text-align: center;">Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #4267B2; color: white; flex: 1; text-align: center;">Facebook</a>
+                    <a href="https://api.whatsapp.com/send?text=<?= urlencode(($title ?? 'Check out this AI tool!') . " https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #25D366; color: white; flex: 1; text-align: center;">WhatsApp</a>
+                </div>
+            </div>
+
             <div class="card">
                 <h3>Popular Tools</h3>
                 <ul style="list-style: none; margin-top: 1rem;">
@@ -67,6 +76,8 @@
                     <li><a href="/tools/youtube-thumbnail">📺 YT Thumbnail Downloader</a></li>
                     <li><a href="/tools/privacy-policy-generator">⚖️ Privacy Policy Generator</a></li>
                     <li><a href="/tools/json-formatter">🔧 JSON Formatter</a></li>
+                    <li><a href="/tools/markdown-editor">📝 Markdown Editor</a></li>
+                    <li><a href="/tools/unit-converter">⚖️ Unit Converter</a></li>
                     <li><a href="/tools/lorem-ipsum-generator">📝 Lorem Ipsum Generator</a></li>
                     <li><a href="/privacy-policy">🔒 Privacy Policy</a></li>
                 </ul>
