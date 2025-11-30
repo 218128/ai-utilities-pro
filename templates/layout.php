@@ -67,6 +67,34 @@
     <div class="main-container">
         <main class="content-area">
             <?= $content ?? '' ?>
+
+            <!-- Related Tools Section -->
+            <div class="related-tools" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h3 style="margin-bottom: 1.5rem;">🔥 You Might Also Like</h3>
+                <div class="tools-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                    
+                    <a href="/tools/chatgpt-summarizer" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✨</div>
+                        <div style="font-weight: bold; font-size: 0.9rem;">ChatGPT Summarizer</div>
+                    </a>
+
+                    <a href="/tools/dalle-3-image-generator" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🖼️</div>
+                        <div style="font-weight: bold; font-size: 0.9rem;">DALL-E 3 Generator</div>
+                    </a>
+
+                    <a href="/tools/password-generator" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔐</div>
+                        <div style="font-weight: bold; font-size: 0.9rem;">Password Generator</div>
+                    </a>
+
+                    <a href="/tools/json-formatter" class="tool-card-mini" style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); display: block;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔧</div>
+                        <div style="font-weight: bold; font-size: 0.9rem;">JSON Formatter</div>
+                    </a>
+
+                </div>
+            </div>
         </main>
 
         <aside class="sidebar">
@@ -108,7 +136,34 @@
     </div>
 
     <footer>
-        <p>&copy; <?= date('Y') ?> AI Utilities Pro. All rights reserved.</p>
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: left; padding-bottom: 2rem;">
+            
+            <div>
+                <h4 style="color: var(--text-main); margin-bottom: 1rem;">AI Utilities Pro</h4>
+                <p style="font-size: 0.9rem;">Premium AI tools to supercharge your productivity. Free and easy to use.</p>
+            </div>
+
+            <div>
+                <h4 style="color: var(--text-main); margin-bottom: 1rem;">Quick Links</h4>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 0.5rem;"><a href="/">Home</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="/tools/chatgpt-summarizer">AI Tools</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="/tools/json-formatter">Dev Tools</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="color: var(--text-main); margin-bottom: 1rem;">Legal</h4>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 0.5rem;"><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="/tools/privacy-policy-generator">Policy Generator</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding-top: 2rem; margin-top: 2rem;">
+            <p>&copy; <?= date('Y') ?> AI Utilities Pro. All rights reserved.</p>
+        </div>
     </footer>
     <script>
         document.getElementById('theme-toggle').addEventListener('click', function() {
