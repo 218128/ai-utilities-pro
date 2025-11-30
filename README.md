@@ -7,7 +7,7 @@ A premium collection of AI‑powered and utility tools built with PHP, vanilla C
 - SEO Meta Tag Generator
 - **AI Image Generator** (mock image generation)
 - Dark‑mode toggle
-- Plausible analytics integration
+- Google Analytics 4 integration
 - Placeholder ad slots (ready for AdSense)
 
 ## Quick Start (Local Development)
