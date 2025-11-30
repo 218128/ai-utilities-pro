@@ -1,0 +1,73 @@
+/* Floating Share Sidebar (Desktop) */
+.floating-share {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.floating-share .share-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 1.2rem;
+    transition: width 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-share .share-icon:hover {
+    width: 60px;
+    /* Expand slightly on hover */
+}
+
+.floating-share .twitter {
+    background: #1DA1F2;
+}
+
+.floating-share .facebook {
+    background: #4267B2;
+}
+
+.floating-share .linkedin {
+    background: #0077b5;
+}
+
+.floating-share .whatsapp {
+    background: #25D366;
+}
+
+/* Inline Share (Mobile) - Hidden by default on Desktop */
+.inline-share-mobile {
+    display: none;
+    margin-bottom: 2rem;
+    background: var(--bg-card);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* Mobile Media Query Updates */
+@media (max-width: 768px) {
+
+    /* Hide Floating Sidebar on Mobile */
+    .floating-share {
+        display: none;
+    }
+
+    /* Show Inline Share on Mobile */
+    .inline-share-mobile {
+        display: block;
+    }
+}

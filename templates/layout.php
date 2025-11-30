@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -64,6 +65,14 @@
         </div>
     </nav>
 
+    <!-- Floating Share Sidebar (Desktop) -->
+    <div class="floating-share">
+        <a href="https://twitter.com/intent/tweet?url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>&text=<?= urlencode($title ?? 'Check out this AI tool!') ?>" target="_blank" class="share-icon twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="share-icon facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="share-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://api.whatsapp.com/send?text=<?= urlencode(($title ?? 'Check out this AI tool!') . " https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="share-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
     <!-- Top Ad Banner -->
     <div class="container" style="max-width: 1200px; margin: 2rem auto 0; padding: 0 2rem;">
         <div class="ad-slot ad-banner">
@@ -72,6 +81,17 @@
     </div>
 
     <div class="main-container">
+        
+        <!-- Inline Share Buttons (Mobile Only) -->
+        <div class="inline-share-mobile">
+            <p style="margin-bottom: 0.5rem; font-weight: bold; font-size: 0.9rem;">Share this tool:</p>
+            <div style="display: flex; gap: 0.5rem;">
+                <a href="https://twitter.com/intent/tweet?url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>&text=<?= urlencode($title ?? 'Check out this AI tool!') ?>" target="_blank" class="btn btn-sm" style="background: #1DA1F2; color: white; flex: 1; text-align: center;"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #4267B2; color: white; flex: 1; text-align: center;"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://api.whatsapp.com/send?text=<?= urlencode(($title ?? 'Check out this AI tool!') . " https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #25D366; color: white; flex: 1; text-align: center;"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
         <main class="content-area">
             <?= $content ?? '' ?>
 
@@ -107,15 +127,6 @@
         <aside class="sidebar">
             <div class="ad-slot ad-sidebar">
                 <span>Ad Space (Sidebar 300x600)</span>
-            </div>
-
-            <div class="card" style="margin-bottom: 2rem;">
-                <h3>Share this Tool</h3>
-                <div class="share-buttons" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                    <a href="https://twitter.com/intent/tweet?url=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>&text=<?= urlencode($title ?? 'Check out this AI tool!') ?>" target="_blank" class="btn btn-sm" style="background: #1DA1F2; color: white; flex: 1; text-align: center;">Twitter</a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #4267B2; color: white; flex: 1; text-align: center;">Facebook</a>
-                    <a href="https://api.whatsapp.com/send?text=<?= urlencode(($title ?? 'Check out this AI tool!') . " https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" target="_blank" class="btn btn-sm" style="background: #25D366; color: white; flex: 1; text-align: center;">WhatsApp</a>
-                </div>
             </div>
 
             <div class="card">
